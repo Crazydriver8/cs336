@@ -1,0 +1,6 @@
+test dataase
+
+insert into auctions values('2','112123','jay','2016-4-30','2016-5-2','55','555');
+insert into items values('1','s','ca',2000);
+insert into bids values('1','112123','jay','200','1:25:30','2016-4-3','a','300'); (problem with VIN not referencing item table as foreign key)
+

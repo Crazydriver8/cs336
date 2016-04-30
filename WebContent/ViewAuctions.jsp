@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="UTF-8" import="cs336.*" import="java.util.*" import="java.sql.*"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -7,7 +7,21 @@
 <title>Inside view Auctions</title>
 </head>
 <body>
+<%int auctionid = Integer.parseInt(request.getParameter("auctionid")); %>
+<%AuctionConnection log = new AuctionConnection(); %>
 
+<table>
+		<% LinkedList<Auction> listOfAuctions =log.getAllAuctions();%>
+		<tr>
+		<% for (int i=0; i<listOfAuctions.size();i++){ %>
+			<% if (auctionid==listOfAuctions.get(i).getAuctionID()){ %>
+			<td><% out.println(listOfAuctions.get(i).getAuctionID()); %></td> 
+			<td><% out.println(listOfAuctions.get(i).getSellerName()); %></td> 
+		<%}} %> 
+		</tr>
+		
+		
+		
 	<h1>Your selected Auction</h1>  <!-- 
 	        name or number of auction  User clicks from the list.
 	        -->
