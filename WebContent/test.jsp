@@ -46,7 +46,7 @@
     		response.sendRedirect("UserLanding.jsp");
     	} else {
     		out.println("Invalid password <a href='index.jsp'>Retry</a>");
-    		response.sendRedirect("index.jsp");
+    		//response.sendRedirect("index.jsp");
     	}
     %>
 </body>

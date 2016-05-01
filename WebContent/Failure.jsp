@@ -7,6 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<p>Something went wrong</p>
+	<a href = "index.jsp">Something went wrong</a>
+	
 </body>
 </html>

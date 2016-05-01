@@ -7,25 +7,39 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Registration</title>
+        <link rel="stylesheet" href="css/default.css" type="text/css" />
     </head>
     <body>
+    <div id="loginForm">
+    	<h1>Register User</h1>
         <form method="post" action="RegTest.jsp">
-            <center>
+        	<div id="entry">
+				<input type = "text" name = "userName" placeholder="Username" id="form-control"><br>
+			</div>
+			<div id="entry">
+				<input type = "password" name = "password" placeholder="Password" id="form-control"><br>
+			</div>
+			<div id="entry">
+				<input type = "emailAddr" name = "emailAddr" placeholder="Email" id="form-control" value=""><br>
+			</div>
+			<div id="entry">
+				<input type = "text" name = "firstName" placeholder="First Name" id="form-control" value=""><br>
+			</div>
+			<div id="entry">
+				<input type = "text" name = "lastName" placeholder="Last Name" id="form-control" value=""><br>
+			</div>
+			<input type="submit" value="Submit" id="loginButton"></input>
+            <a href="index.jsp" id="registerLink">
+				Already Registered?
+			</a>
+            <!-- <center>
             <table border="1" width="40%" cellpadding="7">
                 <thead>
                     <tr>
                         <th colspan="4">Register Now!</th>
                     </tr>
                 </thead>
-                <tbody>
-                    <tr>
-                        <td>User Name</td>
-                        <td><input type="text" name="userName" value="" /></td>
-                    </tr>
-                    <tr>
-                        <td>Password</td>
-                        <td><input type="password" name="password" value="" /></td>
-                    </tr>
+                
                     <tr>
                         <td>emailAddr</td>
                         <td><input type="emailAddr" name="emailAddr" value="" /></td>
@@ -50,8 +64,9 @@
                     </tr>
                 </tbody>
             </table>
-            </center>
-        </form>
+            </center>-->
+        	</form>
+        </div>
     </body>
  
 </html>

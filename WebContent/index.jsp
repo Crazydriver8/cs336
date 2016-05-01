@@ -5,20 +5,26 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Login</title>
+<link rel="stylesheet" href="css/default.css" type="text/css" />
 </head>
 <body>
-	<h1>Testing JSP</h1>
-	<hr/>
-	<form action="test.jsp" method="post">
-		Username : <input type = "text" name = "username"><br>
-		Password : <input type = "password" name = "password"><br>
-		<input type="submit" value="Login"></input>
-		<td colspan="2">
-			Not Registered? 
-			<a href="Registration.jsp">
-				Register Here
-			</a>
-		</td>
-	</form>
+	<div id= "loginForm">
+		<h1>Log In</h1>
+		
+		<form action="test.jsp" method="post">
+			<div id="entry">
+				<input type = "text" name = "username" placeholder="Username" id="form-control"><br>
+			</div>
+			<div id="entry">
+				<input type = "password" name = "password" placeholder="Password" id="form-control"><br>
+			</div>
+			<input type="submit" value="Log In" id="loginButton"></input>
+			<td colspan="2">
+				<a href="Registration.jsp" id="registerLink">
+					Not Registered?
+				</a>
+			</td>
+		</form>
+	</div>
 </body>
 </html>
