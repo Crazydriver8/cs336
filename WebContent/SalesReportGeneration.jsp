@@ -10,8 +10,14 @@
 	<table>
         <thead>
             <tr>
-                <td>Id</td>
-                <td>Name</td>
+                <td>VIN</td>
+                <td>Seller</td>
+                <td>Sell Price</td>
+                <td>Make</td>
+                <td>Model</td>
+                <td>Model Year</td>
+                <td>Open Date</td>
+                <td>Close Date</td>
             </tr>
         </thead>
         <tbody>
