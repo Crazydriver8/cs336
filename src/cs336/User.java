@@ -10,6 +10,8 @@ public class User {
 		super();
 		UserName = username;
 		PassWord = password;
+		FirstName = firstname;
+		LastName = lastname;
 	}
 
 

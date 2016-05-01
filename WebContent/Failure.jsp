@@ -8,8 +8,5 @@
 </head>
 <body>
 	<p>Something went wrong</p>
-	<form action="index.jsp" method="post">
-		<input type="submit" value="Return">
-	</form>
 </body>
 </html>

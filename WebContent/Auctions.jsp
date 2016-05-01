@@ -16,17 +16,22 @@
 			<th>highest bid</th>
 			<th>seller name</th>
 		</tr> 	 
-		<% LinkedList<Auction> listOfPeople =log.getAllAuctions();%>
+		<% LinkedList<Auction> listOfAuctions =log.getAllAuctions();%>
 		
-		<% for (int i=0; i<listOfPeople.size();i++){ %>
+		<% for (int i=0; i<listOfAuctions.size();i++){ %>
 		<tr> 
-			<td><a href = Auction.jsp><%= listOfPeople.get(i).getAuctionID() %></a></td> 
-			<td><%= listOfPeople.get(i).getVIN() %></td> 
-			<td><%= listOfPeople.get(i).getHighestBid() %></td> 
-			<td><%= listOfPeople.get(i).getSellerName() %></td> 
-			<td><a href = ModifyAuction.jsp>Modify</a></td>						
+			<%int auctInt = listOfAuctions.get(i).getAuctionID(); %>
+			<% String auctionid = String.valueOf(auctInt); %>
+			<td><a href = Auction.jsp?auctionid=<%=auctionid%>><%= listOfAuctions.get(i).getAuctionID() %></a></td> 
+			<td><%= listOfAuctions.get(i).getVIN() %></td> 
+			<td><%= listOfAuctions.get(i).getHighestBid() %></td> 
+			<td><%= listOfAuctions.get(i).getSellerName() %></td> 
+			<td><a href = RemoveAuction.jsp?auctionid=<%=auctionid%>>Remove</a></td>						
 		</tr>
 		<%} %> 
 	</table>
+<a href="CustomerRepHomepage.jsp">
+<button>Back to Homepage</button>
+</a>
 </body>
 </html>

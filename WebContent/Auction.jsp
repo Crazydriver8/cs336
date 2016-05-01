@@ -4,9 +4,11 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<%String auctionid = request.getParameter("auctionid");%>
+<%int auctionid2 = Integer.parseInt(auctionid);%>
 <title>Auctions</title>
 </head>
-<h1>Auctions</h1>
+<h1>Auction <%=auctionid2 %></h1>
 <body>
 <table>  
 <%AuctionConnection log = new AuctionConnection(); %>
@@ -16,16 +18,21 @@
 			<th>highest bid</th>
 			<th>seller name</th>
 		</tr> 	 
-		<% LinkedList<Auction> listOfPeople =log.getAllAuctions();%>
+		<% LinkedList<Auction> listOfAuctions =log.getAllAuctions();%>
 		
-		<% for (int i=0; i<listOfPeople.size();i++){ %>
+		<% for (int i=0; i<listOfAuctions.size();i++){ %>
 		<tr> 
-			<td><%= listOfPeople.get(i).getAuctionID() %></td> 
-			<td><%= listOfPeople.get(i).getVIN() %></td> 
-			<td><%= listOfPeople.get(i).getHighestBid() %></td> 
-			<td><%= listOfPeople.get(i).getSellerName() %></td> 						
+			<%if(listOfAuctions.get(i).getAuctionID() == auctionid2){ %>
+				<td><%= listOfAuctions.get(i).getAuctionID() %></td> 
+				<td><%= listOfAuctions.get(i).getVIN() %></td> 
+				<td><%= listOfAuctions.get(i).getHighestBid() %></td> 
+				<td><%= listOfAuctions.get(i).getSellerName() %></td> 
+			<%} %>						
 		</tr>
 		<%} %> 
 	</table>
 </body>
+<a href="Auctions.jsp">
+<button>Back to Auctions</button>
+</a>
 </html>

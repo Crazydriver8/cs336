@@ -26,4 +26,7 @@
 		<%} %> 
 	</table>
 </body>
+<a href="CustomerRepHomepage.jsp">
+<button>Back to Homepage</button>
+</a>
 </html>

@@ -16,12 +16,10 @@ import javax.servlet.http.HttpServletResponse;
 
 
 
-public class UserConnection extends HttpServlet {
+public class QuestionConnection extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	private String userName;
-	private String userPass;
-	private String firstName;
-	private String lastName;
+	private String Question;
+	private String Answer;
 	
 	// CONNECTION METHODS
 	// Attempts to get connection to server, StackTraces on failure
@@ -65,12 +63,12 @@ public class UserConnection extends HttpServlet {
 		}
 	}
 	
-	public LinkedList<User> getAllUsers() throws SQLException{
+	public LinkedList<Question> getAllQuestions() throws SQLException{
 		
-		LinkedList<User> listOfUsers = new LinkedList<User>();
+		LinkedList<Question> listOfQuestions = new LinkedList<Question>();
 		
 		//display all tuples
-		String selectString = "select * from Users;";
+		String selectString = "select * from ItemQuestion;";
 		Connection dbConnection = getConnection();
 		PreparedStatement preparedStatement = dbConnection.prepareStatement(selectString);
 		int resLength = 0;
@@ -78,9 +76,9 @@ public class UserConnection extends HttpServlet {
 		
 		//creating a ResultSet
 		while(rs.next( )) {
-			System.out.println("row : id = " + rs.getString("userName") + ", passWord = " + rs.getString("passWord") );
+			System.out.println("row : id = " + rs.getString("question") + ", answer = " + rs.getString("answer") );
 			resLength++;
-			listOfUsers.add(new User(rs.getString("userName"), rs.getString("passWord"), rs.getString(5), rs.getString(4)));
+		listOfQuestions.add(new Question(rs.getInt("questionID"), rs.getString("VIN"), rs.getString("question"), rs.getString("answer")));
 		}
 		System.out.println("Select statement executed, " + resLength + " rows retrieved");
 		
@@ -88,6 +86,6 @@ public class UserConnection extends HttpServlet {
 		preparedStatement.close();
 		dbConnection.close();
 		
-		return listOfUsers;
+		return listOfQuestions;
 	}
 }

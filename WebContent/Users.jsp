@@ -20,12 +20,19 @@
 		<% for (int i=0; i<listOfUsers.size();i++){ %>
 		<tr> 
 			<% String user = listOfUsers.get(i).getUserName(); %>
+			<% String pass = listOfUsers.get(i).getPassWord(); %>
+			<% String firstname = listOfUsers.get(i).getFirstName(); %>
+			<% String lastname = listOfUsers.get(i).getLastName(); %>
 			<td><a href = User.jsp?username=<%=user%>><%= listOfUsers.get(i).getUserName() %></a></td> 
 			<td><%= listOfUsers.get(i).getFirstName() %></td> 
 			<td><%= listOfUsers.get(i).getLastName() %></td> 			
-			<td><a href = ModifyUser.jsp>Modify</a></td>						
+			<td><a href = ModifyUser.jsp?username=<%=user%>>Modify</a></td>	
+			<td><a href = RemoveUser.jsp?username=<%=user%>>Remove</a></td>									
 		</tr>
 		<%} %> 
 	</table>
+<a href="CustomerRepHomepage.jsp">
+   <button>Back to Homepage</button>
+</a>
 </body>
 </html>

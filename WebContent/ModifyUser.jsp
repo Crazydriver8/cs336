@@ -4,9 +4,35 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Insert title here</title>
+<title>Modify User</title>
 </head>
-<h1>Modify User</h1>
+<%String username = request.getParameter("username"); %>
+<h1>Modify <%=username %></h1>
+ <form method="post" action="ModifyUserTest.jsp?currusername=<%=username%>">
+<table>
+	<tr>
+		<th>field</th>
+		<th>modification</th>
+	</tr>
+	<tr>
+		<td>username</td>
+		<td><input type="text" name="username" value="" /></td>
+	</tr>
+	<tr>
+		<td>password</td>
+		<td><input type="text" name="password" value="" /></td>
+	</tr>
+	<tr>
+		<td>first name</td>
+		<td><input type="text" name="firstname" value="" /></td>
+	</tr>
+	<tr>
+		<td>last name</td>
+		<td><input type="text" name="lastname" value="" /></td>
+	</tr>
+</table>
+<input type="submit" value="Submit" />
+</form>
 <body>
 </body>
 </html>
