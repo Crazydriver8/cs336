@@ -1,0 +1,232 @@
+DROP DATABASE IF EXISTS TEST;
+CREATE DATABASE TEST;
+USE TEST;
+
+DROP TABLE IF EXISTS Users;
+CREATE TABLE Users(
+  	userName char(20) NOT NULL,
+  	passWord char(20) NOT NULL,
+  	userType char(4),
+  	lastName varchar(255) DEFAULT NULL,
+  	firstName varchar(255) DEFAULT NULL,
+	
+  	PRIMARY KEY (userName)
+);
+
+DROP TABLE IF EXISTS Email;
+CREATE TABLE Email(
+        sendingUser char(20) NOT NULL,
+        receivingUser char(20) NOT NULL,
+        sendDate date NOT NULL,
+        sendTime time NOT NULL,
+        subject varchar(255),
+        message varchar(255),
+        delivered char(1) NOT NULL,
+        PRIMARY KEY (sendingUser,sendDate,sendTime),
+        FOREIGN KEY (sendingUser)
+        	REFERENCES Users(userName)
+                ON UPDATE CASCADE
+                ON DELETE CASCADE,
+    	FOREIGN KEY (receivingUser)
+      		REFERENCES Users(userName)
+      		ON UPDATE CASCADE
+      		ON DELETE CASCADE
+
+);
+
+DROP TABLE IF EXISTS CreditCard;
+CREATE TABLE CreditCard(
+    cardID int(128) NOT NULL AUTO_INCREMENT,
+        cardNum char(17) NOT NULL,
+        expirDate date NOT NULL,
+        userName char(20) NOT NULL,
+        PRIMARY KEY (cardID),
+        FOREIGN KEY (userName)
+        REFERENCES Users(userName)
+                ON UPDATE CASCADE
+        ON DELETE CASCADE
+);
+
+
+DROP TABLE IF EXISTS BankAccount;
+CREATE TABLE BankAccount(
+        acctNum int(17) NOT NULL UNIQUE,
+        routNum int(9) NOT NULL,
+        userName varchar(20),
+PRIMARY KEY (acctNum, routNum),
+        FOREIGN KEY (userName)
+                REFERENCES Users(userName)
+                ON UPDATE CASCADE
+                ON DELETE CASCADE
+);
+
+DROP TABLE IF EXISTS Bids;
+CREATE TABLE Bids(
+        bidID int(128) NOT NULL AUTO_INCREMENT,
+        VIN char(17) NOT NULL,
+        bidderName varchar(20) NOT NULL,
+        bidAmount double(32 ,2),
+        bidTime time,
+        bidDate date,
+        automatic char(1),
+        upperLimit double (32 ,2),
+        PRIMARY KEY (bidID),
+        FOREIGN KEY (bidderName)
+                REFERENCES Users(userName)
+                ON UPDATE CASCADE
+                ON DELETE CASCADE
+);
+
+DROP TABLE IF EXISTS Items;
+CREATE TABLE Items(
+        VIN char(17) NOT NULL,
+        make char(64),
+        model char(64),
+        modelYear year,
+        PRIMARY KEY (VIN)
+);
+
+DROP TABLE IF EXISTS Auctions;
+CREATE TABLE Auctions(
+auctionID int(128) NOT NULL AUTO_INCREMENT,
+        VIN char(17) NOT NULL,
+        sellerName char(20) NOT NULL,
+        openDate date,
+        closeDate date NOT NULL,
+        minPrice double(32,2),
+        highestBid double(32,2),
+        PRIMARY KEY (auctionID),
+        FOREIGN KEY (VIN)
+                REFERENCES Items(VIN)
+                ON UPDATE CASCADE
+                ON DELETE CASCADE,
+        FOREIGN KEY (sellerName)
+                REFERENCES Users(userName)
+                ON UPDATE CASCADE
+                ON DELETE CASCADE
+);
+
+DROP TABLE IF EXISTS ItemQuestion;
+CREATE TABLE ItemQuestion(
+        questionID int(128) NOT NULL,
+        VIN char(17) NOT NULL,
+        question char(255),
+        asker char(20) NOT NULL,
+        topAnswer int(128),
+        submitTime time,
+        submitDate date,
+        PRIMARY KEY (questionID),
+        FOREIGN KEY (VIN)
+                REFERENCES Items(VIN)
+                ON UPDATE CASCADE
+                ON DELETE CASCADE,
+        FOREIGN KEY (asker)
+                REFERENCES Users(userName)
+                ON UPDATE CASCADE
+                ON DELETE CASCADE
+);
+
+DROP TABLE IF EXISTS Answers;
+CREATE TABLE Answers(
+        answerID int(128) NOT NULL AUTO_INCREMENT,
+        questionID int(128) NOT NULL,
+        answer char(255),
+        answerRating int(1),
+        FOREIGN KEY (questionID)
+        	REFERENCES ItemQuestion(questionID)
+		ON UPDATE CASCADE
+        	ON DELETE CASCADE,
+        PRIMARY KEY (answerID)
+);
+
+DROP TABLE IF EXISTS RemovesBid;
+CREATE TABLE RemovesBid(
+        custRepUsername char(20) NOT NULL,
+        standardUsername char(20) NOT NULL,
+        auctionID int(128) NOT NULL,
+        bidID int(128) NOT NULL,
+        FOREIGN KEY (custRepUsername)
+        REFERENCES Users(userName)
+        ON UPDATE CASCADE
+        ON DELETE CASCADE,
+        PRIMARY KEY (standardUsername, auctionID, bidID),
+        FOREIGN KEY (standardUsername)
+                REFERENCES Users(userName)
+		ON UPDATE CASCADE
+                ON DELETE CASCADE,
+        FOREIGN KEY (auctionID)
+		REFERENCES Auctions(auctionID)
+		ON UPDATE CASCADE
+		ON DELETE CASCADE,
+	FOREIGN KEY (bidID)
+		REFERENCES Bids(bidID)
+		ON UPDATE CASCADE
+		ON DELETE CASCADE
+);
+
+DROP TABLE IF EXISTS hasCard;
+CREATE TABLE hasCard(
+    username char(20) NOT NULL,
+    cardID int(128) NOT NULL,
+    PRIMARY KEY (username, cardID),
+    FOREIGN KEY (username)
+       REFERENCES Users(userName)
+       ON UPDATE CASCADE
+       ON DELETE CASCADE,
+    FOREIGN KEY (cardID)
+       REFERENCES CreditCard(cardID)
+       ON UPDATE CASCADE
+       ON DELETE CASCADE
+);
+
+DROP TABLE IF EXISTS hasAccount;
+CREATE TABLE hasAccount(
+        username char(20),
+acctNum int(17),
+        routingNum int(9),
+        PRIMARY KEY(username, acctNum, routingNum),
+        FOREIGN KEY (username)
+                REFERENCES Users(userName)
+		ON UPDATE CASCADE
+                ON DELETE CASCADE,
+        FOREIGN KEY (acctNum, routingNum)
+                REFERENCES BankAccount(acctNum,routNum)
+		ON UPDATE CASCADE
+                ON DELETE CASCADE
+);
+
+DROP TABLE IF EXISTS interestedIn;
+CREATE TABLE interestedIn(
+        username char(20),
+        VIN char(17),
+        PRIMARY KEY(username, VIN),
+        FOREIGN KEY (username)
+                REFERENCES Users(userName)
+		ON UPDATE CASCADE
+                ON DELETE CASCADE,
+        FOREIGN KEY (VIN)
+                REFERENCES Items(VIN)
+		ON UPDATE CASCADE
+                ON DELETE CASCADE
+);
+
+DROP TABLE IF EXISTS alerts;
+CREATE TABLE alerts(
+        userName char(20) NOT NULL,
+        VIN char(17) NOT NULL,
+        auctionID int(128) NOT NULL,
+        PRIMARY KEY (username, VIN, auctionID),
+        FOREIGN KEY (userName)
+                REFERENCES Users(userName)
+		ON UPDATE CASCADE
+                ON DELETE CASCADE,
+        FOREIGN KEY (VIN)
+                REFERENCES Items(VIN)
+		ON UPDATE CASCADE
+                ON DELETE CASCADE,
+        FOREIGN KEY (auctionID)
+                REFERENCES Auctions(auctionID)
+		ON UPDATE CASCADE
+                ON DELETE CASCADE
+);
+
