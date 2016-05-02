@@ -100,9 +100,6 @@ public class Login extends HttpServlet {
 		System.out.println("Attempting to execute SQL");
 		ResultSet rs = prepState.executeQuery();
 		
-		// Checks if there are multiple users
-		
-		
 		// Checks if there were no users with that username, returns empty password if so
 		if (rs.wasNull()) {
 			return "";

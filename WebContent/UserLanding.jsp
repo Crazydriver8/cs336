@@ -5,6 +5,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>CarSellers</title>
+<link rel="stylesheet" href="css/default.css" type="text/css" />
 </head>
 <body>
 	<div id = "title">
@@ -31,12 +32,12 @@
 				}
 			}
 		} else {
-			out.print("<a id = 'userNotFound' href = 'index.jsp'>Log In?</a>");
+			out.print("<a id = 'userCookie' href = 'index.jsp'>Log In?</a>");
 		}
 	%>
 		<a href="postAuction.jsp">Post Auction</a>
-		<a href="listUsers.jsp">List Users</a>
-		<a href="sendEmail.jsp">Email</a>
+		<a href="Users.jsp">List Users</a>
+		<a href="Email.jsp">Email</a>
 		<a href="ListOfAuctions.jsp">ListAuctions</a>
 		<form action="index.jsp" method="post">
 			<input type="submit" value="Log Out">

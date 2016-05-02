@@ -5,9 +5,30 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Insert title here</title>
+<link rel="stylesheet" href="css/default.css" type="text/css" />
 </head>
 <body>
-	<form method="post" action="RepCreate.jsp">
+	<div id = "loginForm">
+		<h1>Create Customer Representative Account</h1>
+		<form method="post" action="RepCreate.jsp">
+			<div id="entry">
+				<input type = "text" name = "userName" placeholder="Username" id="form-control"><br>
+			</div>
+			<div id="entry">
+				<input type = "password" name = "password" placeholder="Password" id="form-control"><br>
+			</div>
+			<div id="entry">
+				<input type = "emailAddr" name = "emailAddr" placeholder="Email" id="form-control" value=""><br>
+			</div>
+			<div id="entry">
+				<input type = "text" name = "firstName" placeholder="First Name" id="form-control" value=""><br>
+			</div>
+			<div id="entry">
+				<input type = "text" name = "lastName" placeholder="Last Name" id="form-control" value=""><br>
+			</div>
+			<input type="submit" value="Submit" id="loginButton"></input>
+			<a href="AdminLanding.jsp" id="registerLink">Return to Admin Page</a>
+			<!-- 
             <center>
             <table border="1" width="40%" cellpadding="7">
                 <thead>
@@ -49,6 +70,8 @@
                 </tbody>
             </table>
             </center>
+            -->
         </form>
+	</div>
 </body>
 </html>
