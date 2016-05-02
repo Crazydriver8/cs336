@@ -27,7 +27,7 @@ public class Login extends HttpServlet {
 		//String connectionUrl = "jdbc:mysql://classvm115.cs.rutgers.edu:3306/myDB?autoReconnect=true";
 		//String connectionUrl = "jdbc:mysql:http://classvm120.cs.rutgers.edu:8080/CS336/";
 		Connection connection = null;
-		
+		System.out.println("Getting connection");
 		try {
 			Class.forName("com.mysql.jdbc.Driver").newInstance();
 		} catch (InstantiationException e) {
@@ -43,7 +43,8 @@ public class Login extends HttpServlet {
 		try {
 			//connection = DriverManager.getConnection(connectionUrl,"root", "root");
 			//connection = DriverManager.getConnection(connectionUrl,"root", "GimGamGam99");
-			connection = DriverManager.getConnection(connectionUrl, "root", "GimGamGom5");
+			//connection = DriverManager.getConnection(connectionUrl, "root", "GimGamGom5");
+			connection = DriverManager.getConnection(connectionUrl, "root", "root");
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -84,9 +85,8 @@ public class Login extends HttpServlet {
 		// Builds SQL statement from passed-in userName
 		if (userName == "" || userName == null) return "";
 		System.out.println("Finding password for "+userName);
-		String selectString = "select ";
-		selectString += userName;
-		selectString += " from Users;";
+		String selectString = "select passWord from Users where userName = '";
+		selectString += userName + "'";
 		
 		System.out.println("SQL statement is " + selectString);
 		
@@ -101,12 +101,7 @@ public class Login extends HttpServlet {
 		ResultSet rs = prepState.executeQuery();
 		
 		// Checks if there are multiple users
-		if (rs.next()) {
-			System.out.println("Multiple users found");
-		} else {
-			System.out.println("No users found");
-			return "";
-		}
+		
 		
 		// Checks if there were no users with that username, returns empty password if so
 		if (rs.wasNull()) {
@@ -116,7 +111,7 @@ public class Login extends HttpServlet {
 		// Cycles through all instances of username in table, gets first password as return password
 		// Users should not have more than one entry
 		while(rs.next()) {
-			System.out.println("row : userName = " + userName + ", password = " + rs.getString("password"));
+			System.out.println("row : userName = " + userName + ", password = " + rs.getString("passWord"));
 			resLength++;
 			if (testPass == "" || testPass == null) {
 				testPass = rs.getString("password");

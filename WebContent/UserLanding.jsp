@@ -12,6 +12,10 @@
 	</div>
 	
 	<!-- Cookie actions -->
+	
+	
+	<!-- Main body -->
+	<div id = "topbar">
 	<%
 		Cookie cookie = null;
 		Cookie[] cookies = null;
@@ -23,15 +27,13 @@
 				if (cookie.getName().equals("user")) {
 					System.out.println("User found!");
 					out.print("<p id = 'userCookie'>Hello "+ cookie.getValue() + "</p>");
+					break;
 				}
 			}
 		} else {
-			out.print("Could not get cookies");
+			out.print("<a id = 'userNotFound' href = 'index.jsp'>Log In?</a>");
 		}
 	%>
-	
-	<!-- Main body -->
-	<div id = "topbar">
 		<a href="postAuction.jsp">Post Auction</a>
 		<a href="listUsers.jsp">List Users</a>
 		<a href="sendEmail.jsp">Email</a>
