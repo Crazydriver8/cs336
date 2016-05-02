@@ -20,6 +20,12 @@ if (conn == null) {
 Statement stmt = conn.createStatement();
 System.out.println(stmt);
 
+ResultSet rs = stmt.executeQuery("select * from Users where userName = '" + userName + "'");
+if (rs != null) {
+	System.out.println("User " + userName + " found with password "+ rs.getString("passWord"));
+	return;
+}
+
 int i = stmt.executeUpdate("insert into Users(userName, password, userType, lastName, firstName, emailAddr) values ('" + userName + "','" + password + "','" + usertype + "','" + lastName + "','" + firstName + "','"+ emailAddr+"')");
 if (i > 0) {
   

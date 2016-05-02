@@ -8,7 +8,7 @@
 </head>
 <body>
 	<div id = "title">
-		<h1>Welcome to CarSellers!</h1>
+		<h1>CarSellers</h1>
 	</div>
 	
 	<!-- Cookie actions -->
@@ -19,7 +19,11 @@
 		if (cookies != null) {
 			for (int i = 0; i < cookies.length; i++) {
 				cookie = cookies[i];
-				out.print("Name: " + cookie.getName());
+				System.out.println("Name: " + cookie.getName());
+				if (cookie.getName().equals("user")) {
+					System.out.println("User found!");
+					out.print("<p id = 'userCookie'>Hello "+ cookie.getValue() + "</p>");
+				}
 			}
 		} else {
 			out.print("Could not get cookies");

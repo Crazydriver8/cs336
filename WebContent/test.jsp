@@ -33,9 +33,9 @@
     		response.sendRedirect("index.jsp");
     	} else {
     		System.out.println("Found results, password was " + testPass + ", finishing");
-    	}
-    	
-    	if (testPass == pwd) {
+    		System.out.println("Input pass : [" + pwd + "], found pass : [" + testPass + "], equal? " + (pwd.equals(testPass)));
+    	}    	
+    	if (testPass.equals(pwd)) {
     		System.out.println("We did it boys");
     		
     		//create new cookie
