@@ -9,7 +9,7 @@ String firstname = request.getParameter("firstname");
 String lastname = request.getParameter("lastname");
 
 Class.forName("com.mysql.jdbc.Driver").newInstance();
-Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/proj2016?autoReconnect=true","root","GimGamGom5"	);	
+Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/mydb?autoReconnect=true","root","root");	
 //Connection conn = log.getConnection();
 if (conn == null) {
 	response.sendRedirect("Failure.jsp");

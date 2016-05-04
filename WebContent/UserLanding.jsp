@@ -20,6 +20,9 @@
 			for (int i = 0; i < cookies.length; i++) {
 				cookie = cookies[i];
 				out.print("Name: " + cookie.getName());
+				if (cookie.getName() == "user") {
+					break;
+				}
 			}
 		} else {
 			out.print("Could not get cookies");
@@ -29,9 +32,10 @@
 	<!-- Main body -->
 	<div id = "topbar">
 		<a href="postAuction.jsp">Post Auction</a>
-		<a href="listUsers.jsp">List Users</a>
+		<a href="ListOfUsers.jsp">List Users</a>
 		<a href="sendEmail.jsp">Email</a>
-		<a href="ListOfAuctions.jsp">ListAuctions</a>
+		<a href="ListOfAuctions.jsp">List Auctions</a>
+		<a href="Questions.jsp">List Questions</a>
 		<form action="index.jsp" method="post">
 			<input type="submit" value="Log Out">
 		</form>
@@ -54,18 +58,6 @@
 	                <td>Seller</td>
 	            </tr>
 	        </thead>
-	        <%AuctionConnection log = new AuctionConnection(); %>
-	        <% LinkedList<Auction> listOfPeople =log.getAllAuctions();%>
-		
-		<% for (int i=0; i<listOfPeople.size();i++){ %>
-		<tr> 
-			<td><a href = Auction.jsp><%= listOfPeople.get(i).getAuctionID() %></a></td> 
-			<td><%= listOfPeople.get(i).getVIN() %></td> 
-			<td><%= listOfPeople.get(i).getHighestBid() %></td> 
-			<td><%= listOfPeople.get(i).getSellerName() %></td> 
-			<td><a href = ModifyAuction.jsp>Modify</a></td>						
-		</tr>
-		<%} %> 
 			</tbody>
 		</table>
 	</div>

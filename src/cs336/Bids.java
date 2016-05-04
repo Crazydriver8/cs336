@@ -8,7 +8,7 @@ public class Bids {
 
 
 	private int bidID;
-	private String VIN;
+	private int auctionID;
 	private String bidderName;
 	private double bidAmount;
 	private String time;
@@ -16,11 +16,11 @@ public class Bids {
 	private String automatic;
 	private double upperLimit;
 	
-	public Bids(int bidid, String vin, String biddername, double bidamount, String time, String biddate, String automatic, double upperlimit) 
+	public Bids(int bidid, int auctionid, String biddername, double bidamount, String time, String biddate, String automatic, double upperlimit) 
 	{
 		super();
 		bidID = bidid;
-		VIN = vin;
+		auctionID = auctionid;
 		bidderName = biddername;
 		bidAmount = bidamount;
 		this.time = time;
@@ -42,12 +42,12 @@ public class Bids {
 		bidID = bidid;
 	}
 
-	public String getVIN() {
-		return VIN;
+	public int getAuctionID() {
+		return auctionID;
 	}
 
-	public void setVIN(String vin) {
-		VIN = vin;
+	public void setAuctionID(int auctionid) {
+		auctionID = auctionid;
 	}
 	public String getbidderName() {
 		return bidderName;

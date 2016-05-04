@@ -45,10 +45,10 @@ public class BidsConnection extends HttpServlet  {
 				e.printStackTrace();
 			}
 			try {
-				//connection = DriverManager.getConnection(connectionUrl,"root", "root");
+				connection = DriverManager.getConnection(connectionUrl,"root", "root");
 				//connection = DriverManager.getConnection(connectionUrl,"root", "GimGamGam99");
 				//connection = DriverManager.getConnection(connectionUrl, "root", "GimGamGom5");
-				connection = DriverManager.getConnection(connectionUrl,"root","Wnddnjs321");
+				//connection = DriverManager.getConnection(connectionUrl,"root","Wnddnjs321");
 			} catch (SQLException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -80,9 +80,9 @@ public class BidsConnection extends HttpServlet  {
 			
 			//creating a ResultSet
 			while(rs.next( )) {
-				System.out.println("row : id = " + rs.getString("bidID") + ", VIN = " + rs.getString("VIN") );
+				System.out.println("row : id = " + rs.getString("bidID"));
 				resLength++;
-				listOfBids.add(new Bids(rs.getInt("bidID"), rs.getString("VIN"), rs.getString("bidderName"), rs.getDouble("bidAmount"), rs.getString("time"),rs.getString("bidDate"), rs.getString("automatic"), rs.getDouble("upperLimit")));
+				listOfBids.add(new Bids(rs.getInt("bidID"), rs.getInt("auctionID"), rs.getString("bidderName"), rs.getDouble("bidAmount"), rs.getString("bidTime"),rs.getString("bidDate"), rs.getString("automatic"), rs.getDouble("upperLimit")));
 			}
 			System.out.println("Select statement executed, " + resLength + " rows retrieved");
 			
