@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
-<title>List of Auctions</title>
+<title>sortedbyHighestbid</title>
 </head>
         <script>
     
@@ -45,7 +45,7 @@
         	String keyField = request.getParameter("keyField");
         	String keyWord = request.getParameter("keyWord");
    
-        	ArrayList<ListAuction> list = log.getListAuction(keyField, keyWord);
+        	ArrayList<ListAuction> list = log.getHighBidAuctionlist(keyField, keyWord);
 
 
 
