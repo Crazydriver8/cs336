@@ -39,9 +39,9 @@ public class SalesConnection {
 			e.printStackTrace();
 		}
 		try {
-			//connection = DriverManager.getConnection(connectionUrl,"root", "root");
+			connection = DriverManager.getConnection(connectionUrl,"root", "root");
 			//connection = DriverManager.getConnection(connectionUrl,"root", "GimGamGam99");
-			connection = DriverManager.getConnection(connectionUrl, "root", "GimGamGom5");
+			//connection = DriverManager.getConnection(connectionUrl, "root", "GimGamGom5");
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

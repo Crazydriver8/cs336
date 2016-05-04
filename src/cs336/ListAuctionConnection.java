@@ -29,10 +29,10 @@ public class ListAuctionConnection extends HttpServlet {
 	// CONNECTION METHODS
 				// Attempts to get connection to server, StackTraces on failure
 				public Connection getConnection(){
-					//String connectionUrl = "jdbc:mysql://localhost:3306/proj2016?autoReconnect=true";
+					String connectionUrl = "jdbc:mysql://localhost:3306/proj2016?autoReconnect=true";
 					//String connectionUrl = "jdbc:mysql://classvm115.cs.rutgers.edu:3306/myDB?autoReconnect=true";
 					//String connectionUrl = "jdbc:mysql:http://classvm120.cs.rutgers.edu:8080/CS336/";
-					String connectionUrl =  "jdbc:mysql://localhost:3306/mydb?autoReconnect=true";
+					//String connectionUrl =  "jdbc:mysql://localhost:3306/mydb?autoReconnect=true";
 							
 
 					Connection connection = null;
@@ -50,10 +50,10 @@ public class ListAuctionConnection extends HttpServlet {
 						e.printStackTrace();
 					}
 					try {
-						//connection = DriverManager.getConnection(connectionUrl,"root", "root");
+						connection = DriverManager.getConnection(connectionUrl,"root", "root");
 						//connection = DriverManager.getConnection(connectionUrl,"root", "GimGamGam99");
 						//connection = DriverManager.getConnection(connectionUrl, "root", "GimGamGom5");
-						connection = DriverManager.getConnection(connectionUrl,"root","Wnddnjs321");
+						//connection = DriverManager.getConnection(connectionUrl,"root","Wnddnjs321");
 					} catch (SQLException e) {
 						// TODO Auto-generated catch block
 						e.printStackTrace();

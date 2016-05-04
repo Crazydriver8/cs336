@@ -2,11 +2,8 @@
     pageEncoding="UTF-8" import="cs336.*" import="java.util.*" import="java.sql.*"%>
 <%Login log = new Login(); %>
 <%
-String questionid = request.getParameter("questionid");
-int questionid2 = Integer.parseInt(questionid);
-String answer = request.getParameter("answer");
-out.println(answer);
-
+String bidid = request.getParameter("bidid");
+int bidid2 = Integer.parseInt(bidid);
 Class.forName("com.mysql.jdbc.Driver").newInstance();
 Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/mydb?autoReconnect=true","root","root");	
 //Connection conn = log.getConnection();
@@ -18,13 +15,12 @@ if (conn == null) {
 Statement stmt = conn.createStatement();
 System.out.println(stmt);
 
-int i = 1;
-if(!(answer.equals(""))){
-	i = stmt.executeUpdate("update ItemQuestion set answer = \""+answer+"\" where ItemQuestion.questionID = " + questionid + ";");
-}    
+int i = 0;
+i = stmt.executeUpdate("delete from Bids where Bids.bidID = " + bidid2 + ";");
+
 if (i > 0) {
-    response.sendRedirect("Questions.jsp");	
+    response.sendRedirect("CustomerRepHomepage.jsp");
+  	
 }
 
 %>
-

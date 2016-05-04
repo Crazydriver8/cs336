@@ -31,8 +31,28 @@
 		</tr>
 		<%} %> 
 	</table>
+	<h3>Bids</h3>
+<%BidsConnection bids = new BidsConnection(); %>
+<table>
+		<th>auction id</th>
+		<th>bid id</th>
+		<% LinkedList<Bids> listOfBids = bids.getAllBids();%>
+		<% for (int i=0; i<listOfBids.size();i++){ %>
+			<% if (auctionid2 == listOfBids.get(i).getAuctionID()){ %>
+			<tr>
+			<%int bidInt = listOfBids.get(i).getbidID(); %>
+			<% String bidid = String.valueOf(bidInt); %>
+			<td><% out.println(listOfBids.get(i).getAuctionID()); %></td> 
+			<td><% out.println(listOfBids.get(i).getbidID()); %></td> 
+			<td><a href = RemoveBid.jsp?bidid=<%=bidid%>>Remove</a></td>	
+			</tr>
+		<%}} %> 
+</table>
 </body>
-<a href="Auctions.jsp">
-<button>Back to Auctions</button>
-</a>
+<button onclick="goBack()">Go Back</button>
+<script>
+function goBack() {
+    window.history.back();
+}
+</script>
 </html>

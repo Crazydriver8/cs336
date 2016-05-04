@@ -110,3 +110,13 @@
 #topbar #userCookie {
 	font-family: arial;
 }
+
+#logo {
+	font-family: arial;
+	background: purple;
+}
+
+##listTable #tableTop{
+	background: purple;
+	font-family: arial;
+}

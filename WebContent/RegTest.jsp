@@ -9,9 +9,9 @@ String lastName = request.getParameter("lastName");
 String emailAddr = request.getParameter("emailAddr");
 String usertype = "nor";
 
-//Class.forName("com.mysql.jdbc.Driver").newInstance();
-//Connection conn = DriverManager.getConnection("jdbc:mysql:http://classvm120.cs.rutgers.edu:8080/CS336/","root","GimGamGom5"	);	
-Connection conn = log.getConnection();
+Class.forName("com.mysql.jdbc.Driver").newInstance();
+Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/mydb?autoReconnect=true","root","root");	
+//Connection conn = log.getConnection();
 if (conn == null) {
 	response.sendRedirect("Failure.jsp");
 	System.out.println("Connection Error");

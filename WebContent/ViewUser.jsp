@@ -58,15 +58,11 @@
 		<% for (int i=0; i<listOfBids.size();i++){ %>
 			<% if (username.equals(listOfBids.get(i).getbidderName())){ %>
 			<tr>
-			<%int bidInt = listOfBids.get(i).getbidID(); %>
-			<% String bidid = String.valueOf(bidInt); %>
 			<td><% out.println(listOfBids.get(i).getbidID()); %></td> 
 			<td><% out.println(listOfBids.get(i).getAuctionID()); %></td> 
-			<td><a href = RemoveBid.jsp?bidid=<%=bidid%>>Remove</a></td>	
 			</tr>
 		<%}} %> 
 </table>
-<button onclick="goBack()">Go Back</button>
 <script>
 function goBack() {
     window.history.back();

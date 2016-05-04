@@ -13,6 +13,12 @@
 <input type="text" name="answer" value="" />
 <input type="submit" value="Submit" />
 </form>
+<button onclick="goBack()">Go Back</button>
+<script>
+function goBack() {
+    window.history.back();
+}
+</script>
 <body>
 </body>
 </html>

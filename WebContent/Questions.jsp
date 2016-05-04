@@ -30,8 +30,11 @@
 		</tr>
 		<%} %> 
 	</table>
-<a href="CustomerRepHomepage.jsp">
-<button>Back to Homepage</button>
-</a>
+<button onclick="goBack()">Go Back</button>
+<script>
+function goBack() {
+    window.history.back();
+}
+</script>
 </body>
 </html>

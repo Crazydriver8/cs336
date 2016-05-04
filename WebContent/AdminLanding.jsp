@@ -9,7 +9,7 @@
 	
 	<body>
 		<h1> Administrator Tools </h1>
-		<a href="">Email Users</a>
+		<a href="Email.jsp">Email Users</a>
 		<a href="CustomerRepCreation.jsp">Create Customer Representative Account</a>
 		<a href="SalesReportGeneration.jsp">Generate Sales Report</a>
 	</body>

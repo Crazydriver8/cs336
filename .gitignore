@@ -46,3 +46,8 @@ $RECYCLE.BIN/
 Network Trash Folder
 Temporary Items
 .apdisk
+src/cs336/AuctionConnection.java
+src/cs336/AuctionConnection.java
+src/cs336/EmailConnection.java
+src/cs336/ItemConnection.java
+WebContent/WEB-INF/lib/mysql-connector-java-5.0.8-bin.jar
