@@ -5,34 +5,14 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
 <title>List of Auctions</title>
+<link rel="stylesheet" href="css/default.css" type="text/css" />
 </head>
-        <script>
-    
-   
-    function searchCheck(frm){
-        //search
-        if(frm.keyWord.value ==""){
-            alert("Please write more than one letter for search!");
-            frm.keyWord.focus();
-            return;
-        }
-        frm.submit();      
-    
-    }
-    function searchCheck2(frm){
-        //search
-       
-        if(frm.keyWord2.value ==""){
-            alert("Please write more than one letter for search!");
-            frm.keyWord2.focus();
-            return;
-        }
-        frm.submit();      
-    }
-</script>
 <body>
-	<h1>Car Auctions</h1> 
+	<div id="logo"><h1>CarSellers</h1></div>
 	
+	<div id="titleText"><h1>Car Auctions</h1></div> 
+	
+<<<<<<< HEAD
 
 
 <%ListAuctionConnection log = new ListAuctionConnection(); %>
@@ -50,9 +30,16 @@
 
 
  %>
- 	    <table>
-        <tr bgcolor="pink">
- <th>AuctionID</th><th>VIN</th><th>SellerName</th><th>CloseDate</th><th>Company</th><th>Model</th><th><a href = sortHighestBid.jsp><Highest Bid/a>=HighestBid</th>        </tr>
+ 	    <table id = "listTable">
+        	<tr id = "tableTop" bgcolor="pink">
+ 				<th>AuctionID</th>
+ 				<th>VIN</th>
+ 				<th>SellerName</th>
+ 				<th>CloseDate</th>
+ 				<th>Company</th>
+ 				<th>Model</th>
+ 				<th><a href = sortHighestBid.jsp><Highest Bid/a>=HighestBid</th>        
+ 			</tr>
     <%
        for(ListAuction vo : list){
    
@@ -99,6 +86,41 @@
     </tr>
 
 
+=======
+	<table class="bbs" width="800" height="200" border="2" bgcolor="D8D8D8">
+	<colgroup>
+		<col width="50"/>
+		<col width="50"/>
+		<col width="50"/>
+		<col width="50"/>
+<%AuctionConnection log = new AuctionConnection(); %>
+	
+		<tr> 
+			<th>AuctionNumber</th> 
+			<th>SellerName</th>
+			<th>HighestBid</th>
+		</tr> 	
+		<% LinkedList<Auction> listOfAuctions =log.getAllAuctions();%>
+		
+		<% for (int i=0; i<listOfAuctions.size();i++){ %>
+		<tr> 
+			<% int auction = listOfAuctions.get(i).getAuctionID(); %>
+			<td><a href =ViewAuctions.jsp?auctionid=<%=auction%>><%= listOfAuctions.get(i).getAuctionID() %></a></td> 
+			<td><%= listOfAuctions.get(i).getSellerName() %></td> 
+			<td><%= listOfAuctions.get(i).getHighestBid() %></td> 			
+									
+		</tr>
+		<%} %> 
+	</table>
+
+
+<button onclick="goBack()">Go Back</button>
+<script>
+function goBack() {
+    window.history.back();
+}
+</script>
+>>>>>>> origin/master
 
 </body>
 </html>

@@ -27,8 +27,8 @@ public class BidsConnection extends HttpServlet  {
 			//String connectionUrl = "jdbc:mysql://localhost:3306/proj2016?autoReconnect=true";
 			//String connectionUrl = "jdbc:mysql://classvm115.cs.rutgers.edu:3306/myDB?autoReconnect=true";
 			//String connectionUrl = "jdbc:mysql:http://classvm120.cs.rutgers.edu:8080/CS336/";
-			String connectionUrl =  "jdbc:mysql://localhost:3306/mydb?autoReconnect=true";
-					
+			//String connectionUrl =  "jdbc:mysql://localhost:3306/mydb?autoReconnect=true";
+			String connectionUrl =  "jdbc:mysql://localhost:3306/proj2016?autoReconnect=true";		
 
 			Connection connection = null;
 			
@@ -45,10 +45,14 @@ public class BidsConnection extends HttpServlet  {
 				e.printStackTrace();
 			}
 			try {
-				//connection = DriverManager.getConnection(connectionUrl,"root", "root");
+				connection = DriverManager.getConnection(connectionUrl,"root", "root");
 				//connection = DriverManager.getConnection(connectionUrl,"root", "GimGamGam99");
 				//connection = DriverManager.getConnection(connectionUrl, "root", "GimGamGom5");
-				connection = DriverManager.getConnection(connectionUrl,"root","Wnddnjs321");
+<<<<<<< HEAD
+				connection = DriverManager.getConnection(connectionUrl,"root","root");
+=======
+				//connection = DriverManager.getConnection(connectionUrl,"root","Wnddnjs321");
+>>>>>>> origin/master
 			} catch (SQLException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -80,9 +84,9 @@ public class BidsConnection extends HttpServlet  {
 			
 			//creating a ResultSet
 			while(rs.next( )) {
-				System.out.println("row : id = " + rs.getString("bidID") + ", VIN = " + rs.getString("VIN") );
+				System.out.println("row : id = " + rs.getString("bidID"));
 				resLength++;
-				listOfBids.add(new Bids(rs.getInt("bidID"), rs.getString("VIN"), rs.getString("bidderName"), rs.getDouble("bidAmount"), rs.getString("time"),rs.getString("bidDate"), rs.getString("automatic"), rs.getDouble("upperLimit")));
+				listOfBids.add(new Bids(rs.getInt("bidID"), rs.getInt("auctionID"), rs.getString("bidderName"), rs.getDouble("bidAmount"), rs.getString("bidTime"),rs.getString("bidDate"), rs.getString("automatic"), rs.getDouble("upperLimit")));
 			}
 			System.out.println("Select statement executed, " + resLength + " rows retrieved");
 			

@@ -5,18 +5,18 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>CarSellers</title>
-<link rel="stylesheet" href="css/default.css" type="text/css" />
 </head>
 <body>
-	<div id = "title">
+<<<<<<< HEAD
+	<div id = "logo">
 		<h1>CarSellers</h1>
+=======
+	<div id = "title">
+		<h1>Welcome to CarSellers!</h1>
+>>>>>>> origin/master
 	</div>
 	
 	<!-- Cookie actions -->
-	
-	
-	<!-- Main body -->
-	<div id = "topbar">
 	<%
 		Cookie cookie = null;
 		Cookie[] cookies = null;
@@ -24,21 +24,23 @@
 		if (cookies != null) {
 			for (int i = 0; i < cookies.length; i++) {
 				cookie = cookies[i];
-				System.out.println("Name: " + cookie.getName());
-				if (cookie.getName().equals("user")) {
-					System.out.println("User found!");
-					out.print("<p id = 'userCookie'>Hello "+ cookie.getValue() + "</p>");
+				out.print("Name: " + cookie.getName());
+				if (cookie.getName() == "user") {
 					break;
 				}
 			}
 		} else {
-			out.print("<a id = 'userCookie' href = 'index.jsp'>Log In?</a>");
+			out.print("Could not get cookies");
 		}
 	%>
+	
+	<!-- Main body -->
+	<div id = "topbar">
 		<a href="postAuction.jsp">Post Auction</a>
-		<a href="Users.jsp">List Users</a>
-		<a href="Email.jsp">Email</a>
-		<a href="ListOfAuctions.jsp">ListAuctions</a>
+		<a href="ListOfUsers.jsp">List Users</a>
+		<a href="sendEmail.jsp">Email</a>
+		<a href="ListOfAuctions.jsp">List Auctions</a>
+		<a href="Questions.jsp">List Questions</a>
 		<form action="index.jsp" method="post">
 			<input type="submit" value="Log Out">
 		</form>
@@ -61,18 +63,6 @@
 	                <td>Seller</td>
 	            </tr>
 	        </thead>
-	        <%AuctionConnection log = new AuctionConnection(); %>
-	        <% LinkedList<Auction> listOfPeople =log.getAllAuctions();%>
-		
-		<% for (int i=0; i<listOfPeople.size();i++){ %>
-		<tr> 
-			<td><a href = Auction.jsp><%= listOfPeople.get(i).getAuctionID() %></a></td> 
-			<td><%= listOfPeople.get(i).getVIN() %></td> 
-			<td><%= listOfPeople.get(i).getHighestBid() %></td> 
-			<td><%= listOfPeople.get(i).getSellerName() %></td> 
-			<td><a href = ModifyAuction.jsp>Modify</a></td>						
-		</tr>
-		<%} %> 
 			</tbody>
 		</table>
 	</div>
