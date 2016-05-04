@@ -7,19 +7,33 @@
 <title>Inside view Auctions</title>
 </head>
 <body>
-<%int auctionid = Integer.parseInt(request.getParameter("auctionid")); %>
+<%int id = Integer.parseInt(request.getParameter("auctionid")); %>
+<%--//create new cookie
+		Cookie auctionCookie = new Cookie("auction",request.getParameter("auctionid"));
+        //setting cookie to expiry in 30 mins
+        auctionCookie.setMaxAge(30*60);
+        response.addCookie(auctionCookie);
+        auctionCookie.setDomain("historyBids.jsp");            
+
+
+       	
+		 --%>
+	
+		
+
+
 <%AuctionConnection log = new AuctionConnection(); %>
 
 <table>
 		<% LinkedList<Auction> listOfAuctions =log.getAllAuctions();%>
 		<tr>
 		<% for (int i=0; i<listOfAuctions.size();i++){ %>
-			<% if (auctionid==listOfAuctions.get(i).getAuctionID()){ %>
+			<% if (id==listOfAuctions.get(i).getAuctionID()){ %>
 			<td><% out.println(listOfAuctions.get(i).getAuctionID()); %></td> 
 			<td><% out.println(listOfAuctions.get(i).getSellerName()); %></td> 
 		<%}} %> 
 		</tr>
-		
+
 		
 		
 	<h1>Your selected Auction</h1>  <!-- 
