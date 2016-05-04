@@ -33,6 +33,7 @@ public class AuctionConnection extends HttpServlet {
 		String connectionUrl =  "jdbc:mysql://localhost:3306/mydb?autoReconnect=true";
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 				Connection connection = null;
 				
 				try {
@@ -60,6 +61,8 @@ public class AuctionConnection extends HttpServlet {
 				return connection;
 			}
 =======
+=======
+>>>>>>> origin/master
 		
 		Connection connection = null;
 		
@@ -87,6 +90,9 @@ public class AuctionConnection extends HttpServlet {
 		return connection;
 		
 	}
+<<<<<<< HEAD
+>>>>>>> origin/master
+=======
 >>>>>>> origin/master
 	
 	// Attempts to close existing connection, StackTraces on failure

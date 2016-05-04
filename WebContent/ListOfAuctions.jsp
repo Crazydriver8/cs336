@@ -10,6 +10,7 @@
 <body>
 	<div id="logo"><h1>CarSellers</h1></div>
 	
+<<<<<<< HEAD
 	<div id="titleText"><h1>Car Auctions</h1></div> 
 	
 <<<<<<< HEAD
@@ -87,6 +88,8 @@
 
 
 =======
+=======
+>>>>>>> origin/master
 	<table class="bbs" width="800" height="200" border="2" bgcolor="D8D8D8">
 	<colgroup>
 		<col width="50"/>
@@ -120,6 +123,9 @@ function goBack() {
     window.history.back();
 }
 </script>
+<<<<<<< HEAD
+>>>>>>> origin/master
+=======
 >>>>>>> origin/master
 
 </body>

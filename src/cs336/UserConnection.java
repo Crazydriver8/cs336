@@ -50,7 +50,10 @@ public class UserConnection extends HttpServlet {
 			//connection = DriverManager.getConnection(connectionUrl,"root", "GimGamGam99");
 			//connection = DriverManager.getConnection(connectionUrl, "root", "GimGamGom5");
 <<<<<<< HEAD
+<<<<<<< HEAD
 			connection = DriverManager.getConnection(connectionUrl, "root", "root");
+=======
+>>>>>>> origin/master
 =======
 >>>>>>> origin/master
 		} catch (SQLException e) {

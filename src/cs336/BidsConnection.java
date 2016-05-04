@@ -49,7 +49,11 @@ public class BidsConnection extends HttpServlet  {
 				//connection = DriverManager.getConnection(connectionUrl,"root", "GimGamGam99");
 				//connection = DriverManager.getConnection(connectionUrl, "root", "GimGamGom5");
 <<<<<<< HEAD
+<<<<<<< HEAD
 				connection = DriverManager.getConnection(connectionUrl,"root","root");
+=======
+				//connection = DriverManager.getConnection(connectionUrl,"root","Wnddnjs321");
+>>>>>>> origin/master
 =======
 				//connection = DriverManager.getConnection(connectionUrl,"root","Wnddnjs321");
 >>>>>>> origin/master

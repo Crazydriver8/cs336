@@ -8,8 +8,13 @@
 </head>
 <body>
 <<<<<<< HEAD
+<<<<<<< HEAD
 	<div id = "logo">
 		<h1>CarSellers</h1>
+=======
+	<div id = "title">
+		<h1>Welcome to CarSellers!</h1>
+>>>>>>> origin/master
 =======
 	<div id = "title">
 		<h1>Welcome to CarSellers!</h1>
