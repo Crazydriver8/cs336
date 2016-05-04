@@ -5,9 +5,26 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Insert title here</title>
+<link rel="stylesheet" href="css/default.css" type="text/css" />
 </head>
 <body>
-	<form method="post" action="EmailTest.jsp">
+	<div id = "loginForm">
+		<h1>Email</h1>
+		<form method="post" action="EmailTest.jsp">
+			<div id="entry">
+				<input type = "text" name = "receivingUser" placeholder="Recipient" id="form-control"><br>
+			</div>
+			<div id="entry">
+				<input type = "text" name = "subject" placeholder="Subject" id="form-control"><br>
+			</div>
+			<div id="entryArea">
+				<textarea name="body" cols = "41" rows = "10" id = "form-area"></textarea>
+			</div>
+			<input type="submit" value="Send" id="loginButton"></input>
+			<a href="UserLanding.jsp" id="registerLink">
+				Quit without Sending
+			</a>
+            <!-- 
             <center>
             <table border="1" width="40%" cellpadding="7">
                 <thead>
@@ -32,6 +49,8 @@
                 </tbody>
             </table>
             </center>
+            -->
         </form>
+	</div>
 </body>
 </html>

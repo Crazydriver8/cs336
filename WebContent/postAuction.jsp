@@ -4,10 +4,34 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Insert title here</title>
+<title>Create Auction</title>
+<link rel="stylesheet" href="css/default.css" type="text/css" />
 </head>
 <body>
-	<form method="post" action="PostTest.jsp">
+	<div id="loginForm">
+		<h1>Post Auction</h1>
+		<form method="post" action="PostTest.jsp">
+        	<div id="entry">
+				<input type = "text" name = "vin" placeholder="VIN" id="form-control"><br>
+			</div>
+			<div id="entry">
+				<input type = "text" name = "make" placeholder="Manufacturer" id="form-control"><br>
+			</div>
+			<div id="entry">
+				<input type = "text" name = "model" placeholder="Model" id="form-control" value=""><br>
+			</div>
+			<div id="entry">
+				<input type = "text" name = "modelYear" placeholder="Model Year" id="form-control" value=""><br>
+			</div>
+			<div id="entry">
+				<input type = "text" name = "minPrice" placeholder="Minimum Price" id="form-control" value=""><br>
+			</div>
+			<div id="entry">
+				<input type = "text" name = "closeDate" placeholder="Ending Date" id="form-control" value=""><br>
+			</div>
+			<input type="submit" value="Submit" id="loginButton"></input>
+			<a href="UserLanding.jsp" id="registerLink">Quit without Posting</a>
+            <!-- 
             <center>
             <table border="1" width="40%" cellpadding="7">
                 <thead>
@@ -52,6 +76,8 @@
                 </tbody>
             </table>
             </center>
+            -->
         </form>
+	</div>
 </body>
 </html>
